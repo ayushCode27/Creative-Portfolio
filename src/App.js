@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={lightTheme}>
         <RouterProvider router={router} />
       </ThemeProvider>
     </>
