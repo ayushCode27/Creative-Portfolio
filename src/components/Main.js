@@ -5,6 +5,8 @@ import LogoComponent from '../subComponets/LogoComponent';
 import SocialIcons from '../subComponets/SocialIcons';
 import { Link } from 'react-router-dom';
 import { YinYang } from './allSvg';
+import Intro from './Intro';
+import { motion } from 'framer-motion';
 
 const Wrapper = styled.div`
   background: ${props => props.theme.body};
@@ -151,24 +153,35 @@ const Main = () => {
         </Center>
 
         <ContactLink target='_blank' to='mailto:ayushagarwal.dev@gmail.com'>
-          <h2>Say hi...</h2>
+          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            Say hi...
+          </motion.h2>
         </ContactLink>
         <BlogLink target='_blank' to='mailto:ayushagarwal.dev@gmail.com'>
-          <h2>Blog</h2>
+          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            Blog
+          </motion.h2>
         </BlogLink>
         <WorkLink to='/work' click={click}>
-          <h2>Work</h2>
+          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            Work
+          </motion.h2>
         </WorkLink>
 
         <BottomBar>
           <AboutLink to='/about' click={click}>
-            <h2>About Me</h2>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              About Me
+            </motion.h2>
           </AboutLink>
           <SkillsLink to='/skills'>
-            <h2>Skills</h2>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              Skills
+            </motion.h2>
           </SkillsLink>
         </BottomBar>
       </Container>
+      {click && <Intro click={click} />}
     </Wrapper>
   );
 };
