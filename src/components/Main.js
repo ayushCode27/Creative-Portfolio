@@ -37,6 +37,18 @@ const rotate = keyframes`
   }
 `;
 
+const DarkDiv = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  width: ${props => (props.click ? '50%' : '0%')};
+  height: ${props => (props.click ? '100%' : '0%')};
+  background-color: #000000;
+  z-index: 1;
+  transition: height 0.5s ease, width 1s ease 0.5s;
+`;
+
 const Center = styled.button`
   position: absolute;
   top: ${props => (props.click ? '85%' : '50%')};
@@ -81,7 +93,7 @@ const BlogLink = styled(Link)`
 `;
 
 const WorkLink = styled(Link)`
-  color: ${props => props.theme.text};
+  color: ${props => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
   left: calc(1rem + 2vw);
@@ -102,7 +114,7 @@ const BottomBar = styled.div`
 `;
 
 const AboutLink = styled(Link)`
-  color: ${props => props.theme.text};
+  color: ${props => (props.click ? props.theme.body : props.theme.text)};
   text-decoration: none;
   z-index: 1;
 `;
@@ -121,10 +133,12 @@ const Main = () => {
 
   return (
     <Wrapper>
+      <DarkDiv click={click} />
+
       <Container>
         <PowerButton />
-        <LogoComponent />
-        <SocialIcons />
+        <LogoComponent theme={click ? 'dark' : 'light'} />
+        <SocialIcons theme={click ? 'dark' : 'light'} />
 
         <Center click={click}>
           <YinYang
@@ -142,12 +156,12 @@ const Main = () => {
         <BlogLink target='_blank' to='mailto:ayushagarwal.dev@gmail.com'>
           <h2>Blog</h2>
         </BlogLink>
-        <WorkLink to='/work'>
+        <WorkLink to='/work' click={click}>
           <h2>Work</h2>
         </WorkLink>
 
         <BottomBar>
-          <AboutLink to='/about'>
+          <AboutLink to='/about' click={click}>
             <h2>About Me</h2>
           </AboutLink>
           <SkillsLink to='/skills'>
