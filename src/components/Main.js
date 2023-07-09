@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import PowerButton from '../subComponets/PowerButton';
 import LogoComponent from '../subComponets/LogoComponent';
 import SocialIcons from '../subComponets/SocialIcons';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { YinYang } from './allSvg';
 import Intro from './Intro';
 import { motion } from 'framer-motion';
@@ -76,7 +76,7 @@ const Center = styled.button`
   }
 `;
 
-const ContactLink = styled(Link)`
+const ContactLink = styled(NavLink)`
   color: ${props => props.theme.text};
   position: absolute;
   top: 2rem;
@@ -84,7 +84,7 @@ const ContactLink = styled(Link)`
   text-decoration: none;
   z-index: 1;
 `;
-const BlogLink = styled(Link)`
+const BlogLink = styled(NavLink)`
   color: ${props => props.theme.text};
   position: absolute;
   right: calc(1rem + 2vw);
@@ -94,7 +94,7 @@ const BlogLink = styled(Link)`
   z-index: 1;
 `;
 
-const WorkLink = styled(Link)`
+const WorkLink = styled(NavLink)`
   color: ${props => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
@@ -115,12 +115,12 @@ const BottomBar = styled.div`
   justify-content: space-evenly;
 `;
 
-const AboutLink = styled(Link)`
+const AboutLink = styled(NavLink)`
   color: ${props => (props.click ? props.theme.body : props.theme.text)};
   text-decoration: none;
   z-index: 1;
 `;
-const SkillsLink = styled(Link)`
+const SkillsLink = styled(NavLink)`
   color: ${props => props.theme.text};
   text-decoration: none;
   z-index: 1;
@@ -157,7 +157,7 @@ const Main = () => {
             Say hi...
           </motion.h2>
         </ContactLink>
-        <BlogLink target='_blank' to='mailto:ayushagarwal.dev@gmail.com'>
+        <BlogLink to='/blog'>
           <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             Blog
           </motion.h2>
