@@ -6,6 +6,7 @@ import PowerButton from '../subComponets/PowerButton';
 import SocialIcons from '../subComponets/SocialIcons';
 import BlogComponent from './BlogComponent';
 import { Blogs } from '../data/BlogData';
+import AnchorComponent from '../subComponets/Anchor';
 
 const Wrapper = styled.div`
   background-image: url(${bgImg});
@@ -43,6 +44,7 @@ const BlogPage = () => {
         <LogoComponent />
         <PowerButton />
         <SocialIcons />
+        <AnchorComponent/>
         <Center>
           <Grid>
             {Blogs.map(blog => {
