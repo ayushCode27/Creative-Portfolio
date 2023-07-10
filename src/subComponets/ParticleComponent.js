@@ -35,7 +35,7 @@ const ParticleComponent = props => {
         id='tsparticles'
         init={particlesInit}
         loaded={particlesLoaded}
-        options={props.theme === 'light' ? configLight : configDark}
+        params={props.theme === 'light' ? configLight : configDark}
       />
     </Wrapper>
   );
