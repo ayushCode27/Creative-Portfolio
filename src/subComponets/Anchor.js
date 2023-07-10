@@ -27,7 +27,7 @@ const PreDisplay = styled.div`
   right: 2rem;
 `;
 
-const AnchorComponent = () => {
+const AnchorComponent = (props) => {
   const ref = useRef(null);
   const hiddenRef = useRef(null);
 
@@ -43,7 +43,7 @@ const AnchorComponent = () => {
 
       if (window.scrollY > 5) {
         hiddenRef.current.style.display = 'none';
-      }else{
+      } else {
         hiddenRef.current.style.display = 'block';
       }
     };
@@ -60,7 +60,7 @@ const AnchorComponent = () => {
         <Anchor width={70} height={70} fill='currentColor' />
       </PreDisplay>
       <Slider ref={ref}>
-        {[...Array(25)].map((x, id) => {
+        {[...Array(props.numbers)].map((x, id) => {
           return (
             <Link
               key={id}

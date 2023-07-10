@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import bgImg from '../assets/Images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg';
 import LogoComponent from '../subComponets/LogoComponent';
@@ -38,17 +38,24 @@ const Grid = styled.div`
 `;
 
 const BlogPage = () => {
+  const [numbers, setNumbers] = useState(0);
+
+  useEffect(() => {
+    let num = (window.innerHeight - 70) / 30;
+    setNumbers(parseInt(num));
+  }, []);
+
   return (
     <Wrapper>
       <Container>
         <LogoComponent />
         <PowerButton />
         <SocialIcons />
-        <AnchorComponent/>
+        <AnchorComponent numbers={numbers}/>
         <Center>
           <Grid>
             {Blogs.map(blog => {
-              return <BlogComponent key={blog.id} blog={blog}/>;
+              return <BlogComponent key={blog.id} blog={blog} />;
             })}
           </Grid>
         </Center>
