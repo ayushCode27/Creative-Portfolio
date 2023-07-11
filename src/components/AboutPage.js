@@ -6,6 +6,7 @@ import SocialIcons from '../subComponets/SocialIcons';
 import PowerButton from '../subComponets/PowerButton';
 import ParticleComponent from '../subComponets/ParticleComponent';
 import astronaut from '../assets/Images/spaceman.png';
+import BigTitle from '../subComponets/BigTitle';
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.body};
@@ -58,9 +59,9 @@ const Box = styled.div`
   position: absolute;
   top: 10rem;
   left: calc(5rem + 5vw);
-  
+
   font-family: 'Ubuntu Mono', monospace;
-  font-style:italic;
+  font-style: italic;
 `;
 
 const AboutPage = () => {
@@ -85,6 +86,7 @@ const AboutPage = () => {
           <br /> <br />I believe everything is an Art when you put your
           consciousness in it. You can connect with me via social links.
         </Box>
+      <BigTitle text='ABOUT' top='10%' left='5%'/>
       </Wrapper>
     </ThemeProvider>
   );

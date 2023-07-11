@@ -7,11 +7,14 @@ import PowerButton from '../subComponets/PowerButton';
 import { Work } from '../data/WorkData';
 import Card from '../subComponets/Card';
 import { YinYang } from './allSvg';
+import BigTitle from '../subComponets/BigTitle';
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.body};
   height: 400vh;
   position: relative;
+  display: flex;
+  align-items: center;
 `;
 
 const Box = styled.ul`
@@ -44,7 +47,7 @@ const WorkPage = () => {
       // horizontal card scroll on vertical scroll
       element.style.transform = `translateX(${-window.scrollY}px)`;
 
-      yinyangRef.current.style.transform = `rotate(${-window.scrollY}deg)`
+      yinyangRef.current.style.transform = `rotate(${-window.scrollY}deg)`;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -69,6 +72,8 @@ const WorkPage = () => {
         <Rotate ref={yinyangRef}>
           <YinYang width={80} height={80} fill={darkTheme.text} />
         </Rotate>
+
+        <BigTitle text='WORK' top='10%' right='20%' />
       </Wrapper>
     </ThemeProvider>
   );
