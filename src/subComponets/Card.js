@@ -2,8 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Github } from '../components/allSvg';
+import { motion } from 'framer-motion';
 
-const Wrapper = styled.li`
+const Wrapper = styled(motion.li)`
   width: 16rem;
   height: 40vh;
   background-color: ${props => props.theme.text};
@@ -53,7 +54,7 @@ const Tag = styled.span`
 const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
-  align-items: center ;
+  align-items: center;
 `;
 
 const Link = styled(NavLink)`
@@ -81,11 +82,24 @@ const Git = styled(NavLink)`
   }
 `;
 
+// Framer motion config
+
+const Item = {
+  hidden: { scale: 0 },
+  show: {
+    scale: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.1,
+    },
+  },
+};
+
 const Card = props => {
   const { id, name, description, tags, demo, github } = props.data;
 
   return (
-    <Wrapper key={id}>
+    <Wrapper key={id} variants={Item}>
       <Title>{name}</Title>
       <Description>{description}</Description>
       <Tags>
