@@ -90,7 +90,7 @@ const Item = {
     scale: 1,
     transition: {
       type: 'spring',
-      duration: 0.1,
+      duration: 0.5,
     },
   },
 };

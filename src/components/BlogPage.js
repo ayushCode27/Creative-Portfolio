@@ -8,8 +8,9 @@ import BlogComponent from './BlogComponent';
 import { Blogs } from '../data/BlogData';
 import AnchorComponent from '../subComponets/Anchor';
 import BigTitle from '../subComponets/BigTitle';
+import { motion } from 'framer-motion';
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   background-image: url(${bgImg});
   background-size: cover;
   background-repeat: no-repeat;
@@ -38,6 +39,12 @@ const Grid = styled.div`
   grid-gap: calc(1rem + 2vw);
 `;
 
+// Framer motion config
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.5, duration: 0.5 } },
+};
+
 const BlogPage = () => {
   const [numbers, setNumbers] = useState(0);
 
@@ -47,12 +54,17 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <Wrapper>
+    <Wrapper
+      variants={container}
+      initial='hidden'
+      animate='show'
+      exit={{ opacity: 0, transition: { duration: 0.5 } }}
+    >
       <Container>
         <LogoComponent />
         <PowerButton />
         <SocialIcons />
-        <AnchorComponent numbers={numbers}/>
+        <AnchorComponent numbers={numbers} />
         <Center>
           <Grid>
             {Blogs.map(blog => {
@@ -60,7 +72,7 @@ const BlogPage = () => {
             })}
           </Grid>
         </Center>
-      <BigTitle text='BLOG' top='5rem' left='5rem' />
+        <BigTitle text='BLOG' top='5rem' left='5rem' />
       </Container>
     </Wrapper>
   );

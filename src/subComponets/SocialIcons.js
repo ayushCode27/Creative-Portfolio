@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Facebook, Github, Twitter, YouTube } from '../components/allSvg';
 import styled from 'styled-components';
 import { darkTheme } from '../components/Themes';
+import { motion } from 'framer-motion';
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,16 +26,21 @@ const Wrapper = styled.div`
   }
 `;
 
-const Line = styled.span`
+const Line = styled(motion.span)`
   width: 2px;
   height: 8rem;
-  background-color: ${props => props.color === 'dark' ? darkTheme.text : darkTheme.body};
+  background-color: ${props =>
+    props.color === 'dark' ? darkTheme.text : darkTheme.body};
 `;
 
 const SocialIcons = props => {
   return (
     <Wrapper>
-      <div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: 'spring', duration: 1, delay: 1 }}
+      >
         <Link target='_blank' to='/'>
           <Github
             width={25}
@@ -42,8 +48,12 @@ const SocialIcons = props => {
             fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
           />
         </Link>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: 'spring', duration: 1, delay: 1.2 }}
+      >
         <Link target='_blank' to='/'>
           <Twitter
             width={25}
@@ -51,8 +61,12 @@ const SocialIcons = props => {
             fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
           />
         </Link>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: 'spring', duration: 1, delay: 1.4 }}
+      >
         <Link target='_blank' to='/'>
           <YouTube
             width={25}
@@ -60,8 +74,12 @@ const SocialIcons = props => {
             fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
           />
         </Link>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: 'spring', duration: 1, delay: 1.6 }}
+      >
         <Link target='_blank' to='/'>
           <Facebook
             width={25}
@@ -69,8 +87,13 @@ const SocialIcons = props => {
             fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
           />
         </Link>
-      </div>
-      <Line color={props.theme}/>
+      </motion.div>
+      <Line
+        color={props.theme}
+        initial={{ height: 0 }}
+        animate={{ height: '8rem' }}
+        transition={{ type: 'spring', duration: 1, delay: 0.8 }}
+      />
     </Wrapper>
   );
 };

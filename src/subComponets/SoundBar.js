@@ -25,6 +25,8 @@ const Wrapper = styled.div`
   & > *:nth-child(4) {
     animation-delay: 0.8s;
   }
+
+  
 `;
 
 const play = keyframes`
